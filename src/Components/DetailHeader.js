@@ -32,12 +32,12 @@ const DetailHeader = ({ match: { url }, location: { pathname } }) => (
   <Container>
     <Ul>
       <Li>
-        <Slink to={`${url}/markets`} path={pathname === `${url}/markets`}>
+        <Slink to={`${url}/markets`} path={pathname === `${url}/markets` ? 1 : 0}>
           Markets
         </Slink>
       </Li>
       <Li>
-        <Slink to={`${url}/exchanges`} path={pathname === `${url}/exchanges`}>
+        <Slink to={`${url}/exchanges`} path={pathname === `${url}/exchanges` ? 1 : 0}>
           Exchanges
         </Slink>
       </Li>

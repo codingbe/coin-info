@@ -44,13 +44,13 @@ const Slink = styled(Link)`
 const Header = ({ location: { pathname } }) => (
   <Container>
     <Ul>
-      <Li path={pathname === "/"}>
+      <Li path={pathname === "/" ? 1 : 0}>
         <Slink to="/">Prices</Slink>
       </Li>
-      <Li path={pathname === "/exchanges"}>
+      <Li path={pathname === "/exchanges" ? 1 : 0}>
         <Slink to="/exchanges">Exchanges</Slink>
       </Li>
-      <Li path={pathname === "/coins" || (pathname.includes("coins") && pathname)}>
+      <Li path={pathname === "/coins" || (pathname.includes("coins") && pathname) ? 1 : 0}>
         <Slink to="/coins">Coins</Slink>
       </Li>
     </Ul>

@@ -12,7 +12,9 @@ export default class CoinsMarkets extends React.Component {
     const { id } = this.props;
     try {
       const { data } = await coinApi.markets(id);
-      const markets = data.filter((market) => market.market_url && market.trust_score === "high");
+      const markets = data.filter(
+        (market) => market.market_url && market.trust_score === "high" && market.adjusted_volume_24h_share >= 0.005
+      );
       this.setState({ markets });
     } catch (e) {
       console.log(e);

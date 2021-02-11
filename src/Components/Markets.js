@@ -22,6 +22,7 @@ const Link = styled.a`
   }
   transition: opacity 0.2s linear;
   font-weight: bold;
+  color: black;
 `;
 
 const Markets = ({ markets, name }) => (
