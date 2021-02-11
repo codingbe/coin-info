@@ -20,8 +20,8 @@ const Slink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${(props) => (props.current ? "white" : "black")};
-  background-color: ${(props) => (props.current ? "#139478" : "transparent")};
+  color: ${(props) => (props.path ? "white" : "black")};
+  background-color: ${(props) => (props.path ? "#139478" : "transparent")};
   border: 5px solid #139478;
   border-radius: 5px;
   transition: background-color 0.2s linear;
@@ -32,12 +32,12 @@ const DetailHeader = ({ match: { url }, location: { pathname } }) => (
   <Container>
     <Ul>
       <Li>
-        <Slink to={`${url}/markets`} current={pathname === `${url}/markets`}>
+        <Slink to={`${url}/markets`} path={pathname === `${url}/markets`}>
           Markets
         </Slink>
       </Li>
       <Li>
-        <Slink to={`${url}/exchanges`} current={pathname === `${url}/exchanges`}>
+        <Slink to={`${url}/exchanges`} path={pathname === `${url}/exchanges`}>
           Exchanges
         </Slink>
       </Li>
