@@ -1,25 +1,27 @@
 import coinApi from "api";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Loader from "./Loader";
 import CoinsExchange from "./CoinsExchange";
 
-export default class CoinsExchanges extends React.Component {
-  state = { exchanges: null, loading: true };
-  async componentDidMount() {
-    const { id } = this.props;
+const CoinsExchanges = ({ id, name }) => {
+  const [exchanges, setExchanges] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const getCoinsExchanges = async (id) => {
     try {
       const { data } = await coinApi.coinsExchanges(id);
       const exchanges = data.filter((exchange) => exchange.fiats.length > 0);
-      this.setState({ exchanges });
+      setExchanges(exchanges);
     } catch (e) {
       console.log(e);
     } finally {
-      this.setState({ loading: false });
+      setLoading(false);
     }
-  }
-  render() {
-    const { exchanges, loading } = this.state;
-    const { name } = this.props;
-    return loading ? <Loader /> : <CoinsExchange exchanges={exchanges} name={name} />;
-  }
-}
+  };
+  useEffect(() => {
+    getCoinsExchanges(id);
+  }, [id]);
+  return loading ? <Loader /> : <CoinsExchange exchanges={exchanges} name={name} />;
+};
+
+export default CoinsExchanges;

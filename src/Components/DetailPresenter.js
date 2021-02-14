@@ -28,7 +28,7 @@ const Info = styled.span`
   }
 `;
 
-const Detail = ({ coin }) => (
+const DetailPresenter = ({ coin }) => (
   <Container>
     <Helmet>
       <title>{coin.name} | 코인정보</title>
@@ -62,7 +62,7 @@ const Detail = ({ coin }) => (
   </Container>
 );
 
-Detail.propTypes = {
+DetailPresenter.propTypes = {
   coin: PropTypes.shape({
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
@@ -76,4 +76,4 @@ Detail.propTypes = {
   }),
 };
 
-export default Detail;
+export default DetailPresenter;

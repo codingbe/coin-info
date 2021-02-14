@@ -36,7 +36,7 @@ const Website = styled.a`
   transition: color 0.2s linear;
 `;
 
-const Exchanges = ({ exchanges }) => (
+const Exchange = ({ exchanges }) => (
   <Container>
     <Helmet>
       <title>Exchanges | 코인정보</title>
@@ -59,7 +59,7 @@ const Exchanges = ({ exchanges }) => (
   </Container>
 );
 
-Exchanges.propTypes = {
+Exchange.propTypes = {
   exchanges: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -72,4 +72,4 @@ Exchanges.propTypes = {
   ),
 };
 
-export default Exchanges;
+export default Exchange;

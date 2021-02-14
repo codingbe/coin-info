@@ -38,7 +38,7 @@ const Detail = styled(Link)`
   transition: opacity 0.2s linear;
 `;
 
-const Coins = ({ coins }) => (
+const Coin = ({ coins }) => (
   <Container>
     <Helmet>
       <title>Coins | 코인정보</title>
@@ -56,7 +56,7 @@ const Coins = ({ coins }) => (
   </Container>
 );
 
-Coins.propTypes = {
+Coin.propTypes = {
   coins: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -67,4 +67,4 @@ Coins.propTypes = {
   ),
 };
 
-export default Coins;
+export default Coin;
