@@ -30,6 +30,7 @@ const Info = styled.span`
 
 const DetailPresenter = ({ coin }) => (
   <Container>
+    {console.log(coin)}
     <Helmet>
       <title>{coin.name} | 코인정보</title>
     </Helmet>
@@ -55,7 +56,7 @@ const DetailPresenter = ({ coin }) => (
     </Content>
     <Content>
       <Info>Released:</Info>
-      <Info>{coin.started_at.slice(0, 10)}</Info>
+      <Info>{coin.started_at ? coin.started_at?.slice(0, 10) : coin.first_data_at?.slice(0, 10)}</Info>
     </Content>
     <DetailHeader />
     <DetailRouter id={coin.id} name={coin.name} />
